@@ -42,17 +42,17 @@ rectangle11 = RectangleAsset(50, 50, thinline11, black11)
 
 
     
-Sprite(rectangle1, (random.randint(0, 1678), random.randint(0, 772)))
-Sprite(rectangle2, (random.randint(0, 1678), random.randint(0, 772)))
-Sprite(rectangle3, (random.randint(0, 1678), random.randint(0, 772)))
-Sprite(rectangle4, (random.randint(0, 1678), random.randint(0, 772)))
-Sprite(rectangle5, (random.randint(0, 1678), random.randint(0, 772)))
-Sprite(rectangle6, (random.randint(0, 1678), random.randint(0, 772)))
-Sprite(rectangle7, (random.randint(0, 1678), random.randint(0, 772)))
-Sprite(rectangle8, (random.randint(0, 1678), random.randint(0, 772)))
-Sprite(rectangle9, (random.randint(0, 1678), random.randint(0, 772)))
-Sprite(rectangle10, (random.randint(0, 1678), random.randint(0, 772)))
-Sprite(rectangle11, (random.randint(0, 1678), random.randint(0, 772)))
+blocklist.append(Sprite(rectangle1, (random.randint(0, 1678), random.randint(0, 772))))
+blocklist.append(Sprite(rectangle2, (random.randint(0, 1678), random.randint(0, 772))))
+blocklist.append(Sprite(rectangle3, (random.randint(0, 1678), random.randint(0, 772))))
+blocklist.append(Sprite(rectangle4, (random.randint(0, 1678), random.randint(0, 772))))
+blocklist.append(Sprite(rectangle5, (random.randint(0, 1678), random.randint(0, 772))))
+blocklist.append(Sprite(rectangle6, (random.randint(0, 1678), random.randint(0, 772))))
+blocklist.append(Sprite(rectangle7, (random.randint(0, 1678), random.randint(0, 772))))
+blocklist.append(Sprite(rectangle8, (random.randint(0, 1678), random.randint(0, 772))))
+blocklist.append(Sprite(rectangle9, (random.randint(0, 1678), random.randint(0, 772))))
+blocklist.append(Sprite(rectangle10, (random.randint(0, 1678), random.randint(0, 772))))
+blocklist.append(Sprite(rectangle11, (random.randint(0, 1678), random.randint(0, 772))))
 
 for s in blocklist:
     s.visible = False
