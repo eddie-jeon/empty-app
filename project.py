@@ -42,8 +42,8 @@ rectangle11 = RectangleAsset(50, 50, thinline11, black11)
 
 
     
-blocklist[0] = Sprite(rectangle1, (random.randint(0, 1678), random.randint(0, 772)))
-blocklist[1] = Sprite(rectangle2, (random.randint(0, 1678), random.randint(0, 772)))
+Sprite(rectangle1, (random.randint(0, 1678), random.randint(0, 772)))
+Sprite(rectangle2, (random.randint(0, 1678), random.randint(0, 772)))
 Sprite(rectangle3, (random.randint(0, 1678), random.randint(0, 772)))
 Sprite(rectangle4, (random.randint(0, 1678), random.randint(0, 772)))
 Sprite(rectangle5, (random.randint(0, 1678), random.randint(0, 772)))
