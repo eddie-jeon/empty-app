@@ -61,9 +61,11 @@ blocklist[0].visible = True
 
 blockcount = 0
 
+'''
 blocklist[blockcount].visible = False
 blockcount = blockcount + 1
 blocklist[blockcount].visible = True
+'''
 
 myapp = App()
 myapp.run()
