@@ -38,9 +38,6 @@ rectangle8 = RectangleAsset(50, 50, thinline8, black8)
 rectangle9 = RectangleAsset(50, 50, thinline9, black9)
 rectangle10 = RectangleAsset(50, 50, thinline10, black10)
 rectangle11 = RectangleAsset(50, 50, thinline11, black11)
-
-
-
     
 blocklist.append(Sprite(rectangle1, (random.randint(0, 1678), random.randint(0, 772))))
 blocklist.append(Sprite(rectangle2, (random.randint(0, 1678), random.randint(0, 772))))
