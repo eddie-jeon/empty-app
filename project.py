@@ -14,5 +14,5 @@ def mouseMove(event):
     ball.y = event.y
 
 myapp = App()
-myapp.listenMouseEvent('move', mouseMove)
+myapp.listenMouseEvent('mousemove', mouseMove)
 myapp.run()
