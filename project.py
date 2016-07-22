@@ -4,6 +4,7 @@ from ggame import LineStyle, Color
 
 blocklist = []
 secondslist = []
+gameend = False
 
 #All time sprites
 second15 = Sprite(TextAsset("15"), (0, 45))
@@ -96,13 +97,20 @@ secondssincestart = 0
 def step():
     global secondslist
     global secondssincestart
-    timenow = time.time()
-    secondssincestart = int(timenow-starttime)
-    secondslist[secondssincestart].visible = True
+    global gameend
+    if gameend == False:
+        timenow = time.time()
+        secondssincestart = int(timenow-starttime)
+        if secondssincestart >= 15:
+            gameend = True
+            if wintext.visible == False:
+                losetext.visible = True
+        if wintext.visible == False:
+            secondslist[secondssincestart].visible = True
 
 #Win/Lose message
 youwin = TextAsset("Congrats, you win!!")
-youlose = TextAsset("Sorry, but you lose ... :(")
+youlose = TextAsset("Sorry, but you lose :(")
 for s in secondslist:
     s.visible = False
 for s in blocklist:
@@ -111,22 +119,22 @@ blocklist[0].visible = True
 
 wintext = Sprite(youwin, (0, 0))
 wintext.visible = False
-losetext = Sprite(youlose, (0, 365)
+losetext = Sprite(youlose, (0, 365))
+losetext.visible = False
 blockcount = 0
 
 #Mouse clicks
 def mouseClick(event):
     global blockcount
-    thesprite = blocklist[blockcount]
-    if blockcount >= len(blocklist):
-        return
-    if event.x >= blocklist[blockcount].x and event.y >= blocklist[blockcount].y and event.x <= blocklist[blockcount].x + 50 and event.y <= blocklist[blockcount].y + 50:
-        if event.x >= rect11.x and event.y >= rect11.y and event.x <= rect11.x + 50 and event.y <= rect11.y + 50:
-            wintext.visible = True
-        
-        blocklist[blockcount].visible = False
-        blockcount = blockcount + 1
-        blocklist[blockcount].visible = True
+    if gameend == False:
+        if blockcount >= len(blocklist):
+            return
+        if event.x >= blocklist[blockcount].x and event.y >= blocklist[blockcount].y and event.x <= blocklist[blockcount].x + 50 and event.y <= blocklist[blockcount].y + 50:
+            if event.x >= rect11.x and event.y >= rect11.y and event.x <= rect11.x + 50 and event.y <= rect11.y + 50:
+                wintext.visible = True
+            #blocklist[blockcount].visible = False
+            blockcount = blockcount + 1
+            blocklist[blockcount].visible = True
         
 myapp = App()
 myapp.listenMouseEvent('click', mouseClick)
