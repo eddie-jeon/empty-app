@@ -4,6 +4,7 @@ from ggame import LineStyle, Color
 
 blocklist = []
 
+#All the colored blocks
 black1= Color(0x000000, 1)
 black2 = Color(0x292929, 1)
 black2 = Color(0x404040, 1)
@@ -38,7 +39,6 @@ rectangle8 = RectangleAsset(50, 50, thinline8, black8)
 rectangle9 = RectangleAsset(50, 50, thinline9, black9)
 rectangle10 = RectangleAsset(50, 50, thinline10, black10)
 rectangle11 = RectangleAsset(50, 50, thinline11, black11)
-    
 blocklist.append(Sprite(rectangle1, (random.randint(0, 1678), random.randint(0, 772))))
 blocklist.append(Sprite(rectangle2, (random.randint(0, 1678), random.randint(0, 772))))
 blocklist.append(Sprite(rectangle3, (random.randint(0, 1678), random.randint(0, 772))))
@@ -52,6 +52,7 @@ blocklist.append(Sprite(rectangle10, (random.randint(0, 1678), random.randint(0,
 rect11 = Sprite(rectangle11, (random.randint(0, 1678), random.randint(0, 772)))
 blocklist.append(rect11)
 
+#Win message
 youwin = TextAsset("Congrats, you win!!")
 
 for s in blocklist:
@@ -63,6 +64,7 @@ text = Sprite(youwin, (0, 0))
 text.visible = False
 blockcount = 0
 
+#Mouse clicks
 def mouseClick(event):
     global blockcount
     thesprite = blocklist[blockcount]
@@ -71,7 +73,8 @@ def mouseClick(event):
     if event.x >= blocklist[blockcount].x and event.y >= blocklist[blockcount].y and event.x <= blocklist[blockcount].x + 50 and event.y <= blocklist[blockcount].y + 50:
         if event.x >= rect11.x and event.y >= rect11.y and event.x <= rect11.x + 50 and event.y <= rect11.y + 50:
             text.visible = True
-        #blocklist[blockcount].visible = False
+        
+        blocklist[blockcount].visible = False
         blockcount = blockcount + 1
         blocklist[blockcount].visible = True
         
