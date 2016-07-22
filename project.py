@@ -1,5 +1,5 @@
 from ggame import App, RectangleAsset, ImageAsset, SoundAsset, Sprite, Sound, TextAsset
-import random
+import random, Time
 from ggame import LineStyle, Color
 
 blocklist = []
