@@ -1,4 +1,4 @@
-from ggame import App, RectangleAsset, ImageAsset, SoundAsset, Sprite, Sound
+from ggame import App, RectangleAsset, ImageAsset, SoundAsset, Sprite, Sound, TextAsset
 import random
 from ggame import LineStyle, Color
 
@@ -51,9 +51,13 @@ blocklist.append(Sprite(rectangle9, (random.randint(0, 1678), random.randint(0, 
 blocklist.append(Sprite(rectangle10, (random.randint(0, 1678), random.randint(0, 772))))
 blocklist.append(Sprite(rectangle11, (random.randint(0, 1678), random.randint(0, 772))))
 
+youwin = TextAsset("Congrats, you win!!")
+Sprite(youwin, (0, 0))
+
 for s in blocklist:
     s.visible = False
-    
+text = Sprite(youwin, (0, 0))
+text.visible = False
 blocklist[0].visible = True
 
 blockcount = 0
