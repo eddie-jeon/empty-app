@@ -1,8 +1,26 @@
 from ggame import App, RectangleAsset, ImageAsset, SoundAsset, Sprite, Sound, TextAsset
-import random, Time
+import random, time
 from ggame import LineStyle, Color
 
 blocklist = []
+secondlist = []
+
+#All time sprites
+second15 = Sprite(TextAsset("15"))
+second14 = Sprite(TextAsset("14"))
+second13 = Sprite(TextAsset("13"))
+second12 = Sprite(TextAsset("12"))
+second11 = Sprite(TextAsset("11"))
+second10 = Sprite(TextAsset("10"))
+second9 = Sprite(TextAsset("9"))
+second8 = Sprite(TextAsset("8"))
+second7 = Sprite(TextAsset("7"))
+second6 = Sprite(TextAsset("6"))
+second5 = Sprite(TextAsset("5"))
+second4 = Sprite(TextAsset("4"))
+second3 = Sprite(TextAsset("3"))
+second2 = Sprite(TextAsset("2"))
+second1 = Sprite(TextAsset("1"))
 
 #All the colored blocks
 black1= Color(0x000000, 1)
@@ -52,13 +70,20 @@ blocklist.append(Sprite(rectangle10, (random.randint(0, 1678), random.randint(0,
 rect11 = Sprite(rectangle11, (random.randint(0, 1678), random.randint(0, 772)))
 blocklist.append(rect11)
 
+
+starttime = time.time()
+
+#Timer
+def step():
+    timenow = time.time()
+    print(timenow-starttime)
+
 #Win message
 youwin = TextAsset("Congrats, you win!!")
 
 for s in blocklist:
     s.visible = False
 blocklist[0].visible = True
-
 
 text = Sprite(youwin, (0, 0))
 text.visible = False
@@ -78,8 +103,6 @@ def mouseClick(event):
         blockcount = blockcount + 1
         blocklist[blockcount].visible = True
         
-
-
 myapp = App()
 myapp.listenMouseEvent('click', mouseClick)
-myapp.run()
+myapp.run(step)
