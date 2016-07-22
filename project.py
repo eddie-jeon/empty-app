@@ -58,11 +58,15 @@ blocklist[0].visible = True
 
 blockcount = 0
 
-'''
-blocklist[blockcount].visible = False
-blockcount = blockcount + 1
-blocklist[blockcount].visible = True
-'''
+def mouseClick(event):
+    global blockcount
+    blocklist[blockcount].x
+    if event.x >= blocklist[blockcount].x and event.y >= blocklist[blockcount].y and event.x <= blocklist[blockcount].x + 50 and event.y <= blocklist[blockcount].y + 50:
+        #blocklist[blockcount].visible = False
+        blockcount = blockcount + 1
+        blocklist[blockcount].visible = True
+
 
 myapp = App()
+myapp.listenMouseEvent('click', mouseClick)
 myapp.run()
