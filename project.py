@@ -3,24 +3,39 @@ import random, time
 from ggame import LineStyle, Color
 
 blocklist = []
-secondlist = []
+secondslist = []
 
 #All time sprites
-second15 = Sprite(TextAsset("15"))
-second14 = Sprite(TextAsset("14"))
-second13 = Sprite(TextAsset("13"))
-second12 = Sprite(TextAsset("12"))
-second11 = Sprite(TextAsset("11"))
-second10 = Sprite(TextAsset("10"))
-second9 = Sprite(TextAsset("9"))
-second8 = Sprite(TextAsset("8"))
-second7 = Sprite(TextAsset("7"))
-second6 = Sprite(TextAsset("6"))
-second5 = Sprite(TextAsset("5"))
-second4 = Sprite(TextAsset("4"))
-second3 = Sprite(TextAsset("3"))
-second2 = Sprite(TextAsset("2"))
-second1 = Sprite(TextAsset("1"))
+second15 = Sprite(TextAsset("15"), (0, 20))
+second14 = Sprite(TextAsset("14"), (0, 40))
+second13 = Sprite(TextAsset("13"), (0, 60))
+second12 = Sprite(TextAsset("12"), (0, 80))
+second11 = Sprite(TextAsset("11"), (0, 100))
+second10 = Sprite(TextAsset("10"), (0, 120))
+second9 = Sprite(TextAsset("9"), (0, 140))
+second8 = Sprite(TextAsset("8"), (0, 160))
+second7 = Sprite(TextAsset("7"), (0, 180))
+second6 = Sprite(TextAsset("6"), (0, 200))
+second5 = Sprite(TextAsset("5"), (0, 220))
+second4 = Sprite(TextAsset("4"), (0, 240))
+second3 = Sprite(TextAsset("3"), (0, 260))
+second2 = Sprite(TextAsset("2"), (0, 280))
+second1 = Sprite(TextAsset("1"), (0, 300))
+secondslist.append(second15)
+secondslist.append(second14)
+secondslist.append(second13)
+secondslist.append(second12)
+secondslist.append(second11)
+secondslist.append(second10)
+secondslist.append(second9)
+secondslist.append(second8)
+secondslist.append(second7)
+secondslist.append(second6)
+secondslist.append(second5)
+secondslist.append(second4)
+secondslist.append(second3)
+secondslist.append(second2)
+secondslist.append(second1)
 
 #All the colored blocks
 black1= Color(0x000000, 1)
@@ -72,15 +87,19 @@ blocklist.append(rect11)
 
 
 starttime = time.time()
+print(starttime)
 
 #Timer
 def step():
+    global secondslist
     timenow = time.time()
-    print(timenow-starttime)
+    secondssincestart = int(timenow-starttime)
+    secondslist[secondssincestart].visible = True
 
 #Win message
 youwin = TextAsset("Congrats, you win!!")
-
+for s in secondslist:
+    s.visible = False
 for s in blocklist:
     s.visible = False
 blocklist[0].visible = True
