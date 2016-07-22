@@ -49,26 +49,32 @@ blocklist.append(Sprite(rectangle7, (random.randint(0, 1678), random.randint(0, 
 blocklist.append(Sprite(rectangle8, (random.randint(0, 1678), random.randint(0, 772))))
 blocklist.append(Sprite(rectangle9, (random.randint(0, 1678), random.randint(0, 772))))
 blocklist.append(Sprite(rectangle10, (random.randint(0, 1678), random.randint(0, 772))))
-blocklist.append(Sprite(rectangle11, (random.randint(0, 1678), random.randint(0, 772))))
+rect11 = Sprite(rectangle11, (random.randint(0, 1678), random.randint(0, 772)))
+blocklist.append(rect11)
 
 youwin = TextAsset("Congrats, you win!!")
-Sprite(youwin, (0, 0))
 
 for s in blocklist:
     s.visible = False
-text = Sprite(youwin, (0, 0))
-text.visible = False
 blocklist[0].visible = True
 
+
+text = Sprite(youwin, (0, 0))
+text.visible = False
 blockcount = 0
 
 def mouseClick(event):
     global blockcount
-    blocklist[blockcount].x
+    thesprite = blocklist[blockcount]
+    if blockcount >= len(blocklist):
+        return
     if event.x >= blocklist[blockcount].x and event.y >= blocklist[blockcount].y and event.x <= blocklist[blockcount].x + 50 and event.y <= blocklist[blockcount].y + 50:
+        if event.x >= rect11.x and event.y >= rect11.y and event.x <= rect11.x + 50 and event.y <= rect11.y + 50:
+            text.visible = True
         #blocklist[blockcount].visible = False
         blockcount = blockcount + 1
         blocklist[blockcount].visible = True
+        
 
 
 myapp = App()
