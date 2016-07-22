@@ -6,21 +6,22 @@ blocklist = []
 secondslist = []
 
 #All time sprites
-second15 = Sprite(TextAsset("15"), (0, 20))
-second14 = Sprite(TextAsset("14"), (0, 40))
-second13 = Sprite(TextAsset("13"), (0, 60))
-second12 = Sprite(TextAsset("12"), (0, 80))
-second11 = Sprite(TextAsset("11"), (0, 100))
-second10 = Sprite(TextAsset("10"), (0, 120))
-second9 = Sprite(TextAsset("9"), (0, 140))
-second8 = Sprite(TextAsset("8"), (0, 160))
-second7 = Sprite(TextAsset("7"), (0, 180))
-second6 = Sprite(TextAsset("6"), (0, 200))
-second5 = Sprite(TextAsset("5"), (0, 220))
-second4 = Sprite(TextAsset("4"), (0, 240))
-second3 = Sprite(TextAsset("3"), (0, 260))
-second2 = Sprite(TextAsset("2"), (0, 280))
-second1 = Sprite(TextAsset("1"), (0, 300))
+second15 = Sprite(TextAsset("15"), (0, 45))
+second14 = Sprite(TextAsset("14"), (0, 65))
+second13 = Sprite(TextAsset("13"), (0, 85))
+second12 = Sprite(TextAsset("12"), (0, 105))
+second11 = Sprite(TextAsset("11"), (0, 125))
+second10 = Sprite(TextAsset("10"), (0, 145))
+second9 = Sprite(TextAsset("9"), (0, 165))
+second8 = Sprite(TextAsset("8"), (0, 185))
+second7 = Sprite(TextAsset("7"), (0, 205))
+second6 = Sprite(TextAsset("6"), (0, 225))
+second5 = Sprite(TextAsset("5"), (0, 245))
+second4 = Sprite(TextAsset("4"), (0, 265))
+second3 = Sprite(TextAsset("3"), (0, 285))
+second2 = Sprite(TextAsset("2"), (0, 305))
+second1 = Sprite(TextAsset("1"), (0, 325))
+second0 = Sprite(TextAsset("0"), (0, 345))
 secondslist.append(second15)
 secondslist.append(second14)
 secondslist.append(second13)
@@ -36,6 +37,7 @@ secondslist.append(second4)
 secondslist.append(second3)
 secondslist.append(second2)
 secondslist.append(second1)
+secondslist.append(second0)
 
 #All the colored blocks
 black1= Color(0x000000, 1)
@@ -88,24 +90,28 @@ blocklist.append(rect11)
 
 starttime = time.time()
 print(starttime)
+secondssincestart = 0
 
 #Timer
 def step():
     global secondslist
+    global secondssincestart
     timenow = time.time()
     secondssincestart = int(timenow-starttime)
     secondslist[secondssincestart].visible = True
 
-#Win message
+#Win/Lose message
 youwin = TextAsset("Congrats, you win!!")
+youlose = TextAsset("Sorry, but you lose ... :(")
 for s in secondslist:
     s.visible = False
 for s in blocklist:
     s.visible = False
 blocklist[0].visible = True
 
-text = Sprite(youwin, (0, 0))
-text.visible = False
+wintext = Sprite(youwin, (0, 0))
+wintext.visible = False
+losetext = Sprite(youlose, (0, 365)
 blockcount = 0
 
 #Mouse clicks
@@ -116,7 +122,7 @@ def mouseClick(event):
         return
     if event.x >= blocklist[blockcount].x and event.y >= blocklist[blockcount].y and event.x <= blocklist[blockcount].x + 50 and event.y <= blocklist[blockcount].y + 50:
         if event.x >= rect11.x and event.y >= rect11.y and event.x <= rect11.x + 50 and event.y <= rect11.y + 50:
-            text.visible = True
+            wintext.visible = True
         
         blocklist[blockcount].visible = False
         blockcount = blockcount + 1
